@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 33f5c55c52f5d4440a347fb3070abe81
+guid: b596937bf58178243859aa07eb53d2a4
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Cube Idle
-    21300002: Cube Jump
-    21300004: Cube Bonus
-    21300006: Cube Fall
+    21300000: Cubea_0
+    21300002: Cubea_1
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -47,7 +45,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 285
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,9 +61,9 @@ TextureImporter:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -74,104 +72,53 @@ TextureImporter:
   - serializedVersion: 2
     buildTarget: Standalone
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: 47
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 1
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cube Idle
+      name: Cubea_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 414
-        width: 120
-        height: 114
+        x: 0
+        y: 0
+        width: 268
+        height: 268
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eee91f58b3b18c34791fd39b8328b746
+      spriteID: 13e0fcd30e57c794297d28517f1ca798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cube Jump
+      name: Cubea_1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 281
-        width: 120
-        height: 115
+        x: 300
+        y: 0
+        width: 268
+        height: 268
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7226e47f0fafe6c49b88ca3c78eb7f20
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cube Bonus
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 153
-        width: 120
-        height: 114
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bda62b121edc24a4f9c34ebe6691fff7
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cube Fall
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 19
-        width: 120
-        height: 114
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b25b50ef58c1074fb384c1d35f0a8dc
+      spriteID: d408d95bc8bbbcd4a9bab288c9240bbb
       vertices: []
       indices: 
       edges: []
@@ -179,7 +126,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 15e3da8c54f73dc4c91ffc00740caceb
+    spriteID: 655b5492ebcdaa94e9bb284136074ea5
     vertices: []
     indices: 
     edges: []

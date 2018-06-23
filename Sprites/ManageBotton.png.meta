@@ -1,11 +1,14 @@
 fileFormatVersion: 2
-guid: 33f5c55c52f5d4440a347fb3070abe81
+guid: 5861d2a9dac4ebd47bbc84dd0421cd77
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Cube Idle
-    21300002: Cube Jump
-    21300004: Cube Bonus
-    21300006: Cube Fall
+    21300000: ManageBotton_0
+    21300002: ManageBotton_1
+    21300004: ManageBotton_2
+    21300006: ManageBotton_3
+    21300008: ManageBotton_4
+    21300010: ManageBotton_5
+    21300012: ManageBotton_6
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -47,7 +50,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 168
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,9 +66,9 @@ TextureImporter:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -74,36 +77,25 @@ TextureImporter:
   - serializedVersion: 2
     buildTarget: Standalone
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: 47
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 1
-    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cube Idle
+      name: ManageBotton_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 414
-        width: 120
-        height: 114
+        x: 0
+        y: 44
+        width: 147
+        height: 148
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,19 +103,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eee91f58b3b18c34791fd39b8328b746
+      spriteID: 8fc5f6ccaf4b44248b0d235f17183e4b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cube Jump
+      name: ManageBotton_1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 281
-        width: 120
-        height: 115
+        x: 190
+        y: 39
+        width: 173
+        height: 170
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,19 +123,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7226e47f0fafe6c49b88ca3c78eb7f20
+      spriteID: aba7163aec9d2dd439e309d42254084f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cube Bonus
+      name: ManageBotton_2
       rect:
         serializedVersion: 2
-        x: 4
-        y: 153
-        width: 120
-        height: 114
+        x: 404
+        y: 32
+        width: 169
+        height: 172
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,19 +143,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bda62b121edc24a4f9c34ebe6691fff7
+      spriteID: 77a544c432ccf534fb9a276c8f61049c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cube Fall
+      name: ManageBotton_3
       rect:
         serializedVersion: 2
-        x: 3
-        y: 19
-        width: 120
-        height: 114
+        x: 600
+        y: 32
+        width: 170
+        height: 172
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,7 +163,67 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b25b50ef58c1074fb384c1d35f0a8dc
+      spriteID: 0926c180f104a064f91ab03599e2e1d5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ManageBotton_4
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 48
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e127c725e3a807a4fa39a70e84544ba9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ManageBotton_5
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 48
+        width: 141
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d08ef8e1abcd0c429404ce5cbdc06fc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ManageBotton_6
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 0
+        width: 268
+        height: 268
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9430e58502fa774481aa899b4f1828f
       vertices: []
       indices: 
       edges: []
@@ -179,7 +231,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 15e3da8c54f73dc4c91ffc00740caceb
+    spriteID: 23c69aa1d3494ec46821b5c098a104f7
     vertices: []
     indices: 
     edges: []
