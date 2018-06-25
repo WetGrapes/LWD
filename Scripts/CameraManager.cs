@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour {
 
-	public Transform[] target;
-	public int nowTarget;
+	[SerializeField] Transform[] target = new Transform[0];
+	[Range(0,2)]public int nowTarget;
 
 	public float damping = 1, lookAheadFactor = 3, lookAheadReturnSpeed = 0.5f, lookAheadMoveThreshold = 0;
 	float offsetZ;
@@ -28,7 +28,7 @@ public class CameraManager : MonoBehaviour {
 			bool updateLookAheadTarget = Mathf.Abs (yMoveDelta) > lookAheadMoveThreshold;
 
 			if (updateLookAheadTarget)
-				lookAheadPos = lookAheadFactor * Vector3.Up * Mathf.Sign (yMoveDelta);
+				lookAheadPos = lookAheadFactor * Vector3.up* Mathf.Sign (yMoveDelta);
 			else
 				lookAheadPos = Vector3.MoveTowards (lookAheadPos, Vector3.zero, Time.deltaTime * lookAheadReturnSpeed);
 

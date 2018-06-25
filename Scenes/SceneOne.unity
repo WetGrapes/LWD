@@ -187,6 +187,11 @@ Transform:
   m_Father: {fileID: 504306786}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &56336769 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4634105077751858, guid: 306e0472f8617e24582d7fd776ca2f0b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1727023336}
 --- !u!1 &145031228
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,6 +820,11 @@ Transform:
   m_Father: {fileID: 504306786}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &650152977 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4094239028026474, guid: 324ab9c99946a5a4ea0772342d4b95e6,
+    type: 2}
+  m_PrefabInternal: {fileID: 321392207}
 --- !u!1 &658943565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,6 +1526,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3979a018c3473c44da0102c79397fe0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target:
+  - {fileID: 650152977}
+  - {fileID: 56336769}
+  - {fileID: 960991197}
+  nowTarget: 0
+  damping: 0.2
+  lookAheadFactor: 1.5
+  lookAheadReturnSpeed: 3
+  lookAheadMoveThreshold: 1
 --- !u!1 &1419351848
 GameObject:
   m_ObjectHideFlags: 0
