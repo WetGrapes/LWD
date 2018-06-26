@@ -19,8 +19,8 @@ public class GroungAnimation : MonoBehaviour {
 
 	IEnumerator ChangeView()
 	{
-		MaxSpeed = 0.05f * Animator.MaxFactor;
-		MinSpeed = 0.05f * Animator.MinFactor;
+		MaxSpeed = 0.01f * Animator.MaxFactor;
+		MinSpeed = 0.01f * Animator.MinFactor;
 		Render.sprite = Animator.Sets [Animator.NowSet].Set [Random.Range (0, Animator.Sets [Animator.NowSet].Set.Length)];
 		yield return new WaitForSeconds (Random.Range (MinSpeed, MaxSpeed));
 		StartCoroutine (ChangeView ());
