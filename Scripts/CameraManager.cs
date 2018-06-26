@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour {
 
 	[SerializeField] Transform[] target = new Transform[0];
-	[Range(0,2)]public int nowTarget;
+	[Range(0,3)]public int nowTarget;
 
 	public float damping = 1, lookAheadFactor = 3, lookAheadReturnSpeed = 0.5f, lookAheadMoveThreshold = 0;
 	float offsetZ;
