@@ -15,7 +15,7 @@ public class GamePad : MonoBehaviour {
 			switch (gameObject.name) {
 		case "UpBotton":
 			player.jump = true;
-			Invoke ("Off", 0.45f);
+			Invoke ("Off", 0.1f);
 				break;
 		case "LeftBotton":
 			player.left = true;
@@ -25,11 +25,11 @@ public class GamePad : MonoBehaviour {
 				break;
 		case "LeftUpBotton":
 			player.upleft = true;
-			Invoke ("Off", 0.45f);
+			Invoke ("Off", 0.1f);
 				break;
 		case "RightUpBotton":
 			player.upright = true;
-			Invoke ("Off", 0.45f);
+			Invoke ("Off", 0.1f);
 				break;
 		case "CentralBotton":
 			player.central = true; 

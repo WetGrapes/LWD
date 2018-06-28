@@ -34,10 +34,6 @@ public class Player : MonoBehaviour {
 		
 		Grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, Whatisground);
 
-
-		if (jump && Grounded) {
-			rb2d.AddForce (new Vector2(0, 200));
-		}
 		if (left && Grounded) {
 			rb2d.velocity = new Vector2 (-speed, rb2d.velocity.y);
 		} 
