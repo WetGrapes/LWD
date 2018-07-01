@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GamePad : MonoBehaviour {
+public class GamePad : IClickableBotton {
 
 	private Player player;
 
@@ -11,30 +11,31 @@ public class GamePad : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		
+		if (Check (4)) {
 			switch (gameObject.name) {
-		case "UpBotton":
-			player.jump = true;
-			Invoke ("Off", 0.1f);
+			case "UpBotton":
+				player.jump = true;
+				Invoke ("Off", 0.1f);
 				break;
-		case "LeftBotton":
-			player.left = true;
+			case "LeftBotton":
+				player.left = true;
 				break;
-		case "RightBotton":
-			player.right = true;
+			case "RightBotton":
+				player.right = true;
 				break;
-		case "LeftUpBotton":
-			player.upleft = true;
-			Invoke ("Off", 0.1f);
+			case "LeftUpBotton":
+				player.upleft = true;
+				Invoke ("Off", 0.1f);
 				break;
-		case "RightUpBotton":
-			player.upright = true;
-			Invoke ("Off", 0.1f);
+			case "RightUpBotton":
+				player.upright = true;
+				Invoke ("Off", 0.1f);
 				break;
-		case "CentralBotton":
-			player.central = true; 
+			case "CentralBotton":
+				player.central = true; 
 				break;
 			}
+		}
 	}
 
 	void OnMouseUp() {

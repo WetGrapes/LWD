@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 114005671077603696}
   - component: {fileID: 114979738489817242}
   - component: {fileID: 61818767945163912}
+  - component: {fileID: 114896444348136262}
+  - component: {fileID: 114476680263324558}
   m_Layer: 5
   m_Name: BackToMenuText
   m_TagString: Untagged
@@ -67,6 +69,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 1
+--- !u!114 &114476680263324558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1383103198172034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2181abfa27d3f448b631e3ecd18227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  XNow: 3.7
+  XScale: 1
+--- !u!114 &114896444348136262
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1383103198172034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b31866e106850142ba62e8e00e012fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: 3
+  ComponentNames:
+  - Text
+  - StateClick
+  - BoxCollider2D
+  OnThisState: 1
 --- !u!114 &114979738489817242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,7 +125,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 2
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -123,6 +155,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.22, y: -6.5}
+  m_AnchoredPosition: {x: 1, y: -5.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}

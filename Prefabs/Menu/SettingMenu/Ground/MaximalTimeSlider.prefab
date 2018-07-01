@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224560196219148064}
   - component: {fileID: 222474962933532738}
   - component: {fileID: 114892467876533006}
+  - component: {fileID: 114280783429001702}
   m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
@@ -37,6 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224758559911373430}
   - component: {fileID: 114317090724314648}
+  - component: {fileID: 114579144012218866}
   m_Layer: 5
   m_Name: MaximalTimeSlider
   m_TagString: Untagged
@@ -84,6 +86,7 @@ GameObject:
   - component: {fileID: 224805179896010554}
   - component: {fileID: 222413016588212358}
   - component: {fileID: 114754589215913224}
+  - component: {fileID: 114142935137618338}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -101,6 +104,7 @@ GameObject:
   - component: {fileID: 224178818222509636}
   - component: {fileID: 222822165744673264}
   - component: {fileID: 114740564979325360}
+  - component: {fileID: 114757209834855426}
   m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
@@ -108,6 +112,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114142935137618338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1951129796466222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b31866e106850142ba62e8e00e012fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: 3
+  ComponentNames:
+  - Image
+  OnThisState: 1
+--- !u!114 &114280783429001702
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443673764963724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b31866e106850142ba62e8e00e012fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: 3
+  ComponentNames:
+  - Image
+  OnThisState: 1
 --- !u!114 &114317090724314648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,6 +201,21 @@ MonoBehaviour:
         m_CallState: 1
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114579144012218866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1481437638015636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b31866e106850142ba62e8e00e012fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: 3
+  ComponentNames:
+  - Slider
+  OnThisState: 1
 --- !u!114 &114740564979325360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -221,6 +270,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114757209834855426
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1969880437226748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b31866e106850142ba62e8e00e012fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: 3
+  ComponentNames:
+  - Image
+  OnThisState: 1
 --- !u!114 &114892467876533006
 MonoBehaviour:
   m_ObjectHideFlags: 1

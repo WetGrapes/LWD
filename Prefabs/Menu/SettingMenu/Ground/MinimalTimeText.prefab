@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224624597083239606}
   - component: {fileID: 222801728114952116}
   - component: {fileID: 114205019543280724}
+  - component: {fileID: 114865304002840212}
   m_Layer: 5
   m_Name: MinimalTimeText
   m_TagString: Untagged
@@ -61,6 +62,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 2
   m_Text: 'Minimal time '
+--- !u!114 &114865304002840212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1670394254081196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b31866e106850142ba62e8e00e012fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: 3
+  ComponentNames:
+  - Text
+  OnThisState: 1
 --- !u!222 &222801728114952116
 CanvasRenderer:
   m_ObjectHideFlags: 1
