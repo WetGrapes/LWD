@@ -5,9 +5,13 @@ using UnityEngine;
 public class GamePad : MonoBehaviour {
 
 	private Player player;
+	T cmpnt;
+	public Player pp;
 
 	void Start(){
 		 player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
+		pp = gameObject.
+
 	}
 
 	void OnMouseDown() {
