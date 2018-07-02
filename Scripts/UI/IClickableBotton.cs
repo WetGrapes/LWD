@@ -12,7 +12,6 @@ public class IClickableBotton : INeedCam {
 			ret = true;
 		else
 			ret = false;
-		Debug.Log (ret);
 		return  ret;
 	}
 }
