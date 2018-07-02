@@ -5,12 +5,10 @@ using UnityEngine;
 public class GamePad : IClickableBotton {
 
 	private Player player;
-	T cmpnt;
 	public Player pp;
 
 	void Start(){
 		 player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
-		pp = gameObject.
 
 	}
 
