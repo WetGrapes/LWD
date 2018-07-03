@@ -2,10 +2,10 @@ fileFormatVersion: 2
 guid: 33f5c55c52f5d4440a347fb3070abe81
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Cube Idle
-    21300002: Cube Jump
-    21300004: Cube Bonus
-    21300006: Cube Fall
+    21300000: CubeSprites_0
+    21300002: CubeSprites_1
+    21300004: CubeSprites_2
+    21300006: CubeSprites_3
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 130
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,7 +63,7 @@ TextureImporter:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -74,7 +74,7 @@ TextureImporter:
   - serializedVersion: 2
     buildTarget: Standalone
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
@@ -86,92 +86,92 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 47
-    textureCompression: 1
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cube Idle
+      name: CubeSprites_0
       rect:
         serializedVersion: 2
         x: 3
-        y: 414
+        y: 417
         width: 120
-        height: 114
+        height: 120
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eee91f58b3b18c34791fd39b8328b746
+      spriteID: 0ccb66d1f4a86f347952b893b51e2b27
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cube Jump
+      name: CubeSprites_1
       rect:
         serializedVersion: 2
-        x: 2
+        x: 3
         y: 281
         width: 120
-        height: 115
+        height: 120
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7226e47f0fafe6c49b88ca3c78eb7f20
+      spriteID: 605e5ea0e27a2f244b9adee0458e9929
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cube Bonus
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 153
-        width: 120
-        height: 114
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bda62b121edc24a4f9c34ebe6691fff7
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cube Fall
+      name: CubeSprites_2
       rect:
         serializedVersion: 2
         x: 3
-        y: 19
+        y: 149
         width: 120
-        height: 114
+        height: 120
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b25b50ef58c1074fb384c1d35f0a8dc
+      spriteID: 2058eecca9e29354986dcac79a2f373f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CubeSprites_3
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 17
+        width: 120
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e23ddaa774119884d9915c2b2f726f69
       vertices: []
       indices: 
       edges: []
@@ -179,7 +179,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 15e3da8c54f73dc4c91ffc00740caceb
+    spriteID: 93f97f2791b052b41b4a4fa0633e1a03
     vertices: []
     indices: 
     edges: []
