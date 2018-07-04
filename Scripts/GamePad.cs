@@ -5,9 +5,11 @@ using UnityEngine;
 public class GamePad : IClickableBotton {
 
 	private Player player;
+	public Player pp;
 
 	void Start(){
 		 player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
+
 	}
 
 	void OnMouseDown() {

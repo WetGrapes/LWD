@@ -23,6 +23,10 @@ public class Player : MonoBehaviour {
 
 
 
+
+
+
+
 	void Start () {
 		 rb2d = gameObject.GetComponent<Rigidbody2D> ();
 		   tf = gameObject.GetComponent<Transform> ();
@@ -34,26 +38,35 @@ public class Player : MonoBehaviour {
 		
 		Grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, Whatisground);
 
+
+
 		if (left && Grounded) {
 			rb2d.velocity = new Vector2 (-speed, rb2d.velocity.y);
-		} 
-		if (right && Grounded) {
+		} else if (right && Grounded) {
 			rb2d.velocity = new Vector2 (speed, rb2d.velocity.y);
 		} 
+	
 
    } 
 
-
 	void Update () {
+
+		RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down);
+		if (hit.collider != null) {
+
+			Debug.Log (hit.distance);
+		
+		}
+
 		
 		if (jump && Grounded) {
 			rb2d.AddRelativeForce (tf.transform.up * force);
 		} else if (upleft && Grounded) {
-			rb2d.AddRelativeForce (tf.transform.up * force*2);
-			rb2d.AddRelativeForce (tf.transform.right * -force/2);
+			rb2d.AddRelativeForce (tf.transform.up * force);
+			rb2d.AddRelativeForce (tf.transform.right * -force/4);
 		} else if (upright && Grounded) {
-			rb2d.AddRelativeForce (tf.transform.up * force*2);
-			rb2d.AddRelativeForce (tf.transform.right * force/2);
+			rb2d.AddRelativeForce (tf.transform.up * force);
+			rb2d.AddRelativeForce (tf.transform.right * force/4);
 		} 
 	               }
 }
