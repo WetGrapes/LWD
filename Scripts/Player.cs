@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-	public float speed;
-	public bool jump;
-	public bool left;
-	public bool right;
-	public bool upleft;
-	public bool upright;
-	public bool central;
+	public float Speed;
+	[System.NonSerialized] public bool Jump;
+	[System.NonSerialized] public bool Left;
+	[System.NonSerialized] public bool Right;
+	[System.NonSerialized] public bool UpLeft;
+	[System.NonSerialized] public bool UpRight;
+	[System.NonSerialized] public bool Central;
 	public bool Grounded;
-	public int force;
+	public int Force;
 
-	public LayerMask Whatisground;
-	public Transform groundCheck;
-	public float groundRadius;
+	public LayerMask WhatIsGround;
+	public Transform GroundCheck;
+	public float GroundRadius;
 
-	private Rigidbody2D rb2d;
-	private Transform tf;
+	private Rigidbody2D BodyPhysic;
+	private Transform ObjectTransform;
 
 
 
@@ -28,22 +28,22 @@ public class Player : MonoBehaviour {
 
 
 	void Start () {
-		 rb2d = gameObject.GetComponent<Rigidbody2D> ();
-		   tf = gameObject.GetComponent<Transform> ();
+		BodyPhysic = gameObject.GetComponent<Rigidbody2D> ();
+		ObjectTransform = gameObject.GetComponent<Transform> ();
 	}
 	
 
 	void FixedUpdate ()
 	{
 		
-		Grounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, Whatisground);
+		Grounded = Physics2D.OverlapCircle (GroundCheck.position, GroundRadius, WhatIsGround);
 
 
 
-		if (left && Grounded) {
-			rb2d.velocity = new Vector2 (-speed, rb2d.velocity.y);
-		} else if (right && Grounded) {
-			rb2d.velocity = new Vector2 (speed, rb2d.velocity.y);
+		if (Left && Grounded) {
+			BodyPhysic.velocity = new Vector2 (-Speed, BodyPhysic.velocity.y);
+		} else if (Right && Grounded) {
+			BodyPhysic.velocity = new Vector2 (Speed, BodyPhysic.velocity.y);
 		} 
 	
 
@@ -51,22 +51,15 @@ public class Player : MonoBehaviour {
 
 	void Update () {
 
-		RaycastHit2D hit = Physics2D.Raycast(this.gameObject.transform.position, Vector2.down);
-		if (hit.collider != null) {
 
-			Debug.Log (hit.distance);
-		
-		}
-
-		
-		if (jump && Grounded) {
-			rb2d.AddRelativeForce (tf.transform.up * force);
-		} else if (upleft && Grounded) {
-			rb2d.AddRelativeForce (tf.transform.up * force);
-			rb2d.AddRelativeForce (tf.transform.right * -force/4);
-		} else if (upright && Grounded) {
-			rb2d.AddRelativeForce (tf.transform.up * force);
-			rb2d.AddRelativeForce (tf.transform.right * force/4);
+		if (Jump && Grounded) {
+			BodyPhysic.AddRelativeForce (ObjectTransform.transform.up * Force);
+		} else if (UpLeft && Grounded) {
+			BodyPhysic.AddRelativeForce (ObjectTransform.transform.up * Force);
+			BodyPhysic.AddRelativeForce (ObjectTransform.transform.right * -Force);
+		} else if (UpRight && Grounded) {
+			BodyPhysic.AddRelativeForce (ObjectTransform.transform.up * Force);
+			BodyPhysic.AddRelativeForce (ObjectTransform.transform.right * Force);
 		} 
 	               }
 }
