@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class SettingNowSetName : MonoBehaviour {
 	GroundAnimator Animator;
 	Text txt;
-	void Start () {
+	IEnumerator Start () {
 		Animator = GameObject.Find("GroundAnimator").GetComponent<GroundAnimator> ();
 		txt = GetComponent<Text> ();
+		yield return new WaitForSeconds (0.5f);
+		SetText ();
 	}
 
 	public void SetText()

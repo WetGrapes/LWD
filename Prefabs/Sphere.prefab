@@ -21,7 +21,8 @@ GameObject:
   - component: {fileID: 4390864772378964}
   - component: {fileID: 212249090081443004}
   - component: {fileID: 61601541608568644}
-  m_Layer: 8
+  - component: {fileID: 114323032933104600}
+  m_Layer: 0
   m_Name: Sphere
   m_TagString: Items
   m_Icon: {fileID: 0}
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1607356654113982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.371826, y: 0.38335696, z: 0}
+  m_LocalPosition: {x: -19.6, y: 0.38335696, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,7 +58,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.656, y: 0.608}
+    oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 0.82, y: 0.76}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -66,6 +67,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.82, y: 0.76}
   m_EdgeRadius: 0
+--- !u!114 &114323032933104600
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607356654113982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a2d1a10328b3a4d8d8ec7ff120d954, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  Manager: {fileID: 0}
 --- !u!212 &212249090081443004
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -101,7 +115,7 @@ SpriteRenderer:
   m_SortingLayerID: -1108645713
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300006, guid: 6ef2117dec2512d458e1e95d13848d31, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e33112ebfcba4c749a4ac42d0f701c40, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

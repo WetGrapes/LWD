@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4265742682428514}
   - component: {fileID: 212230622243738304}
   - component: {fileID: 50830374836767848}
-  - component: {fileID: 114837961190806164}
   - component: {fileID: 95560300149137064}
   - component: {fileID: 58724666521864280}
+  - component: {fileID: 114388480723418614}
+  - component: {fileID: 114837961190806164}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -52,8 +53,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1087974027220314}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.36, y: -0.3, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 6.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4854685966121102}
@@ -67,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1854483985705116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4265742682428514}
@@ -105,9 +106,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.00000047683716}
+  m_Offset: {x: 0, y: -0.045}
   serializedVersion: 2
-  m_Radius: 0.40765142
+  m_Radius: 0.4
 --- !u!95 &95560300149137064
 Animator:
   serializedVersion: 3
@@ -126,6 +127,284 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114388480723418614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1087974027220314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 414deb19ab6012d4da2f0da71d2d2f62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Point: {fileID: 0}
+  Datas:
+  - NewPoint:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    XPoint:
+    - 0.049252067
+    - 0.056639876
+    - 0.06513586
+    - 0.07490624
+    - 0.086142175
+    - 0.0990635
+    - 0.11392302
+    - 0.13101147
+    - 0.15066318
+    - 0.17326266
+    YPoint:
+    - 0.17326266
+    - 0.15066318
+    - 0.13101147
+    - 0.11392302
+    - 0.0990635
+    - 0.086142175
+    - 0.07490624
+    - 0.06513586
+    - 0.056639876
+    - 0.049252067
+    Steps: 10
+    Lenght: 1
+    XMult: 1
+    YMult: 1
+    StartXCreate: 21.5
+    StartYCreate: 0.5
+  - NewPoint:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    XPoint:
+    - -0.049252067
+    - -0.056639876
+    - -0.06513586
+    - -0.07490624
+    - -0.086142175
+    - -0.0990635
+    - -0.11392302
+    - -0.13101147
+    - -0.15066318
+    - -0.17326266
+    YPoint:
+    - 0.17326266
+    - 0.15066318
+    - 0.13101147
+    - 0.11392302
+    - 0.0990635
+    - 0.086142175
+    - 0.07490624
+    - 0.06513586
+    - 0.056639876
+    - 0.049252067
+    Steps: 10
+    Lenght: 1
+    XMult: -1
+    YMult: 1
+    StartXCreate: 24
+    StartYCreate: 0.5
+  - NewPoint:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    XPoint:
+    - 0.008785324
+    - 0.010103122
+    - 0.01161859
+    - 0.013361379
+    - 0.015365585
+    - 0.017670423
+    - 0.020320985
+    - 0.023369133
+    - 0.026874503
+    - 0.030905679
+    - 0.03554153
+    - 0.04087276
+    - 0.04700367
+    - 0.05405422
+    - 0.06216235
+    - 0.071486704
+    - 0.08220971
+    - 0.09454116
+    - 0.10872234
+    - 0.12503068
+    YPoint:
+    - 0.29173824
+    - 0.25368544
+    - 0.22059605
+    - 0.19182265
+    - 0.1668023
+    - 0.14504549
+    - 0.12612651
+    - 0.109675236
+    - 0.09536977
+    - 0.08293024
+    - 0.07211325
+    - 0.06270718
+    - 0.05452798
+    - 0.047415636
+    - 0.041230988
+    - 0.035853032
+    - 0.03117655
+    - 0.027110044
+    - 0.023573952
+    - 0.02049909
+    Steps: 20
+    Lenght: 1
+    XMult: 1
+    YMult: 2.1
+    StartXCreate: 26.5
+    StartYCreate: 0.5
+  - NewPoint:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    XPoint:
+    - -0.008785324
+    - -0.010103122
+    - -0.01161859
+    - -0.013361379
+    - -0.015365585
+    - -0.017670423
+    - -0.020320985
+    - -0.023369133
+    - -0.026874503
+    - -0.030905679
+    - -0.03554153
+    - -0.04087276
+    - -0.04700367
+    - -0.05405422
+    - -0.06216235
+    - -0.071486704
+    - -0.08220971
+    - -0.09454116
+    - -0.10872234
+    - -0.12503068
+    YPoint:
+    - 0.29173824
+    - 0.25368544
+    - 0.22059605
+    - 0.19182265
+    - 0.1668023
+    - 0.14504549
+    - 0.12612651
+    - 0.109675236
+    - 0.09536977
+    - 0.08293024
+    - 0.07211325
+    - 0.06270718
+    - 0.05452798
+    - 0.047415636
+    - 0.041230988
+    - 0.035853032
+    - 0.03117655
+    - 0.027110044
+    - 0.023573952
+    - 0.02049909
+    Steps: 20
+    Lenght: 1
+    XMult: -1
+    YMult: 2.1
+    StartXCreate: 19
+    StartYCreate: 0.5
+  - NewPoint:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    XPoint:
+    - -0.008785324
+    - -0.010103122
+    - -0.01161859
+    - -0.013361379
+    - -0.015365585
+    YPoint:
+    - 0.29173824
+    - 0.25368544
+    - 0.22059605
+    - 0.19182265
+    - 0.1668023
+    Steps: 5
+    Lenght: 1
+    XMult: 1
+    YMult: 0
+    StartXCreate: 29
+    StartYCreate: 0.5
+  - NewPoint:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    XPoint:
+    - -0.008785324
+    - -0.010103122
+    - -0.01161859
+    - -0.013361379
+    - -0.015365585
+    YPoint:
+    - 0.29173824
+    - 0.25368544
+    - 0.22059605
+    - 0.19182265
+    - 0.1668023
+    Steps: 5
+    Lenght: 1
+    XMult: -1
+    YMult: 0
+    StartXCreate: 16.5
+    StartYCreate: 0.5
+  Quan: 1.175
 --- !u!114 &114837961190806164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,20 +416,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6472bd77749f044a9e8c08c34f1aeda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  jump: 0
-  left: 0
-  right: 0
-  upleft: 0
-  upright: 0
-  central: 0
-  Grounded: 0
-  force: 80
-  Whatisground:
+  Speed: 3
+  DoubleJump: 0
+  Grounded: 1
+  Force: 250
+  WhatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  groundCheck: {fileID: 4854685966121102}
-  groundRadius: 0.5
+  GroundCheck: {fileID: 4854685966121102}
+  GroundRadius: 0.2
+  jumperTime: 0.4
+  jumperUp: 6
+  jumperScaler: 0.03
 --- !u!212 &212230622243738304
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -184,14 +461,14 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 440286581
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 33f5c55c52f5d4440a347fb3070abe81, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 23bf8ac33cf8bd148ac44ba13fd45c1a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.2, y: 1.14}
+  m_Size: {x: 1.2, y: 1.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
