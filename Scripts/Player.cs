@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour {
+<<<<<<< HEAD
 	[Space]
 	public float Speed;
 	public int DoubleJump;
+=======
+
+	public float Speed;
+>>>>>>> 524c57a7f0c6e1a324a226111bceb7f39f887113
 	[System.NonSerialized] public bool Jump;
 	[System.NonSerialized] public bool Left;
 	[System.NonSerialized] public bool Right;
 	[System.NonSerialized] public bool UpLeft;
 	[System.NonSerialized] public bool UpRight;
 	[System.NonSerialized] public bool Central;
+<<<<<<< HEAD
 	[Space]
 	public bool Grounded;
 	public int Force;
@@ -28,6 +34,17 @@ public class Player : MonoBehaviour {
 	[Space]
 
 	public float jumperTime, jumperUp, jumperScaler;
+=======
+	public bool Grounded;
+	public int Force;
+
+	public LayerMask WhatIsGround;
+	public Transform GroundCheck;
+	public float GroundRadius;
+
+	private Rigidbody2D BodyPhysic;
+	private Transform ObjectTransform;
+>>>>>>> 524c57a7f0c6e1a324a226111bceb7f39f887113
 
 
 
@@ -41,6 +58,7 @@ public class Player : MonoBehaviour {
 	}
 
 
+<<<<<<< HEAD
 	IEnumerator Jumper()
 	{ 
 		float scaler = 0;
@@ -53,16 +71,33 @@ public class Player : MonoBehaviour {
 		yield return new WaitForSeconds (jumperTime);
 		transform.localScale = new Vector3 (transform.localScale.x, transform.localScale.y + scaler, transform.localScale.z);
 		StartCoroutine (Jumper ());
+=======
+	void Start () {
+		BodyPhysic = gameObject.GetComponent<Rigidbody2D> ();
+		ObjectTransform = gameObject.GetComponent<Transform> ();
+>>>>>>> 524c57a7f0c6e1a324a226111bceb7f39f887113
 	}
 
 	void FixedUpdate ()
 	{
+<<<<<<< HEAD
+=======
+		
+		Grounded = Physics2D.OverlapCircle (GroundCheck.position, GroundRadius, WhatIsGround);
+
+>>>>>>> 524c57a7f0c6e1a324a226111bceb7f39f887113
 
 		Grounded = Physics2D.OverlapCircle (GroundCheck.position, GroundRadius, WhatIsGround);
 
+<<<<<<< HEAD
 		if (Left) {
 			BodyPhysic.velocity = new Vector2 (-Speed, BodyPhysic.velocity.y);
 		} else if (Right) {
+=======
+		if (Left && Grounded) {
+			BodyPhysic.velocity = new Vector2 (-Speed, BodyPhysic.velocity.y);
+		} else if (Right && Grounded) {
+>>>>>>> 524c57a7f0c6e1a324a226111bceb7f39f887113
 			BodyPhysic.velocity = new Vector2 (Speed, BodyPhysic.velocity.y);
 		} 
 		if (Central) {
@@ -82,6 +117,7 @@ public class Player : MonoBehaviour {
 
 
 		if (Jump && Grounded) {
+<<<<<<< HEAD
 			DoubleJump = 2;
 			Jump = false;
 			Debug.Log ("Jump");
@@ -102,6 +138,15 @@ public class Player : MonoBehaviour {
 			} else 
 				BodyPhysic.AddRelativeForce (transform.up * Force);
 			
+=======
+			BodyPhysic.AddRelativeForce (ObjectTransform.transform.up * Force);
+		} else if (UpLeft && Grounded) {
+			BodyPhysic.AddRelativeForce (ObjectTransform.transform.up * Force);
+			BodyPhysic.AddRelativeForce (ObjectTransform.transform.right * -Force);
+		} else if (UpRight && Grounded) {
+			BodyPhysic.AddRelativeForce (ObjectTransform.transform.up * Force);
+			BodyPhysic.AddRelativeForce (ObjectTransform.transform.right * Force);
+>>>>>>> 524c57a7f0c6e1a324a226111bceb7f39f887113
 		} 
 
 	}
