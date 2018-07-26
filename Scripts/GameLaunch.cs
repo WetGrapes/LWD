@@ -15,5 +15,6 @@ public class GameLaunch : INeedCam {
 			this.enabled = false;
 		} else
 			StartCoroutine (GenerationCheck ());
+		yield break;
 	}
 }

@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.Sprites;
 
 public class Generation : MonoBehaviour {
+	public GameObject Counter;
+	Counters Count;
+	[Space]
 	[SerializeField] GameObject[] Obs = new GameObject[5];
-
+	[Space]
 	[SerializeField] int MaxRnd = 500;
 	[SerializeField] int MaxGround = 350;
 	[SerializeField] int MaxSphere = 100;
@@ -17,15 +20,51 @@ public class Generation : MonoBehaviour {
 	float xpos, ypos, size;
 	public static int GenerationStage;
 
+	[Space]
+	public int LvlSide;
+	public int StepOfGeneration;
+	public int StartOfStep;
+	bool GenDone;
 
-	IEnumerator Start () {
-		yield return new WaitForSeconds (0.0f);
+
+	void Start () {
+		Count = Counter.GetComponent<Counters> ();
 		size = 1;
 		xpos = -4 ;
 		ypos = 2 ;
+		StartCoroutine(StackGeneration ());
+	}
 
-		GenerationStage++;
-		for (int i = 0; i < gm.GetLength (1); i++) {
+	void Update()
+	{
+		if (GenDone) {
+			if ((Count.NowLvlCounter*5) >= ((LvlSide * (StepOfGeneration + 1)) - (StartOfStep*5))) {
+				GenDone = false;
+				StepOfGeneration++;
+				StartCoroutine (StackGeneration ());
+			}
+		}
+	}
+
+
+	IEnumerator StackGeneration()
+	{
+		yield return new WaitForSeconds (0.0001f);
+		GenerationStage = 1;
+		StartCoroutine(ArrayCreating ());
+		yield return new WaitForSeconds (0.1f);
+		GenerationStage = 2;
+		StartCoroutine(ArrayArrangement ());
+		yield return new WaitForSeconds (0.5f);
+		GenerationStage = 3;
+		GenDone = true;
+		yield break;
+	}
+
+	IEnumerator ArrayCreating()
+	{
+		for (int i = (LvlSide*StepOfGeneration); i < (LvlSide*(StepOfGeneration+1)); i++) {
+			yield return new WaitForSeconds (0.0001f);
 			lastClock--;
 			lastCrystal--;
 			lastEnemy--;
@@ -34,57 +73,18 @@ public class Generation : MonoBehaviour {
 				if (j == 0 || j == gm.GetLength (0) - 1) {
 					gm [j, i] = 1;
 				} else {
-					if (gm [j, i] == 0) {
-						if (rnd < MaxGround) {
-							gm [j, i] = 1;
-							cl++;
-						}
-						if (rnd < MaxSphere)
-							gm [j, i] = 2;
-					
-						if (rnd < MaxEnemy && lastEnemy < 0) {
-							gm [j, i] = 3;
-							lastEnemy = 5;
-							gm [j, i + 1] = 1;
-							cl++;
-						}
-						if (rnd < MaxClock && lastClock < 0) {
-							gm [j, i] = 4;
-							lastClock = 10;
-						}
-						if (rnd < MaxBlb && lastCrystal < 0) {
-							gm [j, i] = 5;
-							lastCrystal = 50;
-						}
-					}
-					if (i > 0 && gm [j, (i - 1)] != 0) {
-						if (i > 1 && gm [j, (i - 2)] != 0) {
-							if ((j > 1 && gm [(j - 1), i] != 0)
-								|| (j < gm.GetLength (0) - 2 && gm [(j + 1), i] != 0)) {
-								gm [j, i] = 1;
-								cl++;
-							}
-						}
-					}
-					if (i > 0 && gm [j, (i - 1)] == 1) {
-						if ((j > 1 && gm [(j - 1), i] == 1)
-							|| (j < gm.GetLength (0) - 2 && gm [(j + 1), i] == 1)) {
-							gm [j, (i - 1)] = 0;
-							cl++;
-						}
-					}
-				}
-				if (cl > 3) {
-					gm [Random.Range (1, gm.GetLength (0)-1), i] = 0;
-					gm [Random.Range (1, gm.GetLength (0)-1), i] = 0;
-					cl = 0;
+					ArrayFilling (i, j);
+					ArrayFixing (i, j);
+					RemovalOfUnnecessaryElements (i, j);
 				}
 			}
-
 		}
+		yield break;
+	}
 
-		GenerationStage ++;
-		for (int i = 0; i < gm.GetLength (1); i++) {
+	IEnumerator ArrayArrangement()
+	{
+		for (int i = (LvlSide*StepOfGeneration); i < (LvlSide*(StepOfGeneration+1)); i++) {
 			yield return new WaitForSeconds (0.00f);
 			for (int j = 0; j < gm.GetLength (0); j++) {
 				if (Obs [gm [j, i]] != null) {
@@ -96,16 +96,67 @@ public class Generation : MonoBehaviour {
 			xpos = -4 * size;
 			ypos -= size;
 		}
-		GenerationStage ++;
+		yield break;
+	}
 
-
+	void ArrayFilling(int i, int j)
+	{
+		if (gm [j, i] == 0) {
+			if (rnd < MaxGround) {
+				gm [j, i] = 1;
+				cl++;
+			}
+			if (rnd < MaxSphere)
+				gm [j, i] = 2;
+			
+			if (rnd < MaxEnemy && lastEnemy < 0) {
+				gm [j, i] = 3;
+				lastEnemy = 5;
+				gm [j, i + 1] = 1;
+				cl++;
+			}
+			if (rnd < MaxClock && lastClock < 0) {
+				gm [j, i] = 4;
+				lastClock = 10;
+			}
+			if (rnd < MaxBlb && lastCrystal < 0) {
+				gm [j, i] = 5;
+				lastCrystal = 50;
+			}
+		}
 	}
 	
-
-	void Update () {
-		
+	void ArrayFixing(int i, int j)
+	{
+		if (i > 0 && gm [j, (i - 1)] != 0) {
+			if (i > 1 && gm [j, (i - 2)] != 0) {
+				if ((j > 1 && gm [(j - 1), i] != 0)
+					|| (j < gm.GetLength (0) - 2 && gm [(j + 1), i] != 0)) {
+					gm [j, i] = 1;
+					cl++;
+				}
+			}
+		}
+		if (i > 0 && gm [j, (i - 1)] == 1) {
+			if ((j > 1 && gm [(j - 1), i] == 1)
+				|| (j < gm.GetLength (0) - 2 && gm [(j + 1), i] == 1)) {
+				gm [j, (i - 1)] = 0;
+				cl++;
+			}
+		}
+	}
+	
+	
+	void RemovalOfUnnecessaryElements(int i, int j)
+	{
+		if (cl > 3) {
+			gm [Random.Range (1, gm.GetLength (0)-1), i] = 0;
+			gm [Random.Range (1, gm.GetLength (0)-1), i] = 0;
+			cl = 0;
+		}
 	}
 }
+
 /*
  * Игра начинается
  * n = 25

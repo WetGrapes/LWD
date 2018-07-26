@@ -24,5 +24,6 @@ public class GroungAnimation : MonoBehaviour {
 		Render.sprite = Animator.Sets [Animator.NowSet].Set [Random.Range (0, Animator.Sets [Animator.NowSet].Set.Length)];
 		yield return new WaitForSeconds (Random.Range (MinSpeed, MaxSpeed));
 		StartCoroutine (ChangeView ());
+		yield break;
 	}
 }

@@ -6,10 +6,8 @@ public class CameraManager : MonoBehaviour {
 
 	[SerializeField] Transform[] target = new Transform[0];
 	[Range(0,5)]public int nowTarget;
-
 	public float damping = 1, lookAheadFactor = 3, lookAheadReturnSpeed = 0.5f, lookAheadMoveThreshold = 0;
 	float offsetZ;
-
 	Vector3 lastTargetPosition;
 	Vector3 currentVelocity;
 	Vector3 lookAheadPos;
@@ -19,8 +17,6 @@ public class CameraManager : MonoBehaviour {
 		offsetZ = (transform.position - target[nowTarget].position).z;
 
 	}
-	
-	// Update is called once per frame
 	void Update () {
 		if (target != null) {
 			

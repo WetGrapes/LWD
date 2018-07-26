@@ -34,5 +34,6 @@ public class Trajectory : MonoBehaviour {
 
 		Datas [j].TrajectoryCalculating (Quan);
 		StartCoroutine ( Cr(j));
+		yield break;
 	}
 }

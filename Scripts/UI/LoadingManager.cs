@@ -18,6 +18,7 @@ public class LoadingManager : MonoBehaviour {
 			yield return new WaitForSeconds (0.2f);
 			this.enabled = false;
 		}
+		yield break;
 	}
 }
 

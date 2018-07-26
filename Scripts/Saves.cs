@@ -46,5 +46,6 @@ public class Saves : MonoBehaviour {
 
 		yield return new WaitForSeconds (5f);
 		StartCoroutine (Saver ());
+		yield break;
 	}
 }

@@ -347,6 +347,31 @@ Prefab:
       propertyPath: Obs.Array.data[5]
       value: 
       objectReference: {fileID: 562467253}
+    - target: {fileID: 114458489294832000, guid: cb8b210eae8f54146b5142e0d5a5d689,
+        type: 2}
+      propertyPath: m
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458489294832000, guid: cb8b210eae8f54146b5142e0d5a5d689,
+        type: 2}
+      propertyPath: n
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458489294832000, guid: cb8b210eae8f54146b5142e0d5a5d689,
+        type: 2}
+      propertyPath: LvlSide
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458489294832000, guid: cb8b210eae8f54146b5142e0d5a5d689,
+        type: 2}
+      propertyPath: StartOfStep
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114458489294832000, guid: cb8b210eae8f54146b5142e0d5a5d689,
+        type: 2}
+      propertyPath: Counter
+      value: 
+      objectReference: {fileID: 91941135}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cb8b210eae8f54146b5142e0d5a5d689, type: 2}
   m_IsPrefabParent: 0

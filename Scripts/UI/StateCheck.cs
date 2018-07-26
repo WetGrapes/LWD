@@ -25,6 +25,7 @@ public class StateCheck : INeedCam {
 		
 		yield return new WaitForSeconds (0.2f);
 		StartCoroutine (Checker (State));
+		yield break;
 	}
 	bool Check(int State)
 	{

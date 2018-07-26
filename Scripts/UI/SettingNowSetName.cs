@@ -11,6 +11,7 @@ public class SettingNowSetName : MonoBehaviour {
 		txt = GetComponent<Text> ();
 		yield return new WaitForSeconds (0.5f);
 		SetText ();
+		yield break;
 	}
 
 	public void SetText()
