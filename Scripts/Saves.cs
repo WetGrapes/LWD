@@ -18,6 +18,7 @@ public class Saves : MonoBehaviour {
 		Count.BallSphereCounter = PlayerPrefs.GetInt ("BallSphere", 0);
 		Count.MaxLvlCounter = PlayerPrefs.GetInt ("MaxLvl", 0);
 		Count.AllSecondSpentCounter = PlayerPrefs.GetInt ("SecondsSpent", 0);
+		Count.StartTime = PlayerPrefs.GetInt ("StartTime", 15);
 
 		AnimatorSaver.NowSet = PlayerPrefs.GetInt ("Set", 0);
 		AnimatorSaver.MinFactor = PlayerPrefs.GetInt ("Min", 20);
@@ -31,20 +32,27 @@ public class Saves : MonoBehaviour {
 	}
 
 	IEnumerator Saver () {
-		yield return new WaitForSeconds (5f);
+		yield return new WaitForSeconds (0.1f);
 
 		PlayerPrefs.SetInt ("BLB", Count.blbCounter);
+		yield return new WaitForEndOfFrame();
 		PlayerPrefs.SetInt ("BallSphere", Count.BallSphereCounter);
+		yield return new WaitForEndOfFrame();
 		PlayerPrefs.SetInt ("MaxLvl", Count.MaxLvlCounter);
+		yield return new WaitForEndOfFrame();
 		PlayerPrefs.SetInt ("SecondsSpent", Count.AllSecondSpentCounter);
-
+		yield return new WaitForEndOfFrame();
+		PlayerPrefs.SetInt ("StartTime", Count.StartTime);
+		yield return new WaitForEndOfFrame();
 		PlayerPrefs.SetInt ("Set", AnimatorSaver.NowSet);
+		yield return new WaitForEndOfFrame();
 		PlayerPrefs.SetInt ("Min", AnimatorSaver.MinFactor);
+		yield return new WaitForEndOfFrame();
 		PlayerPrefs.SetInt ("Max", AnimatorSaver.MaxFactor);
-
+		yield return new WaitForEndOfFrame();
 		PlayerPrefs.Save ();
 
-		yield return new WaitForSeconds (5f);
+		yield return new WaitForSeconds (1f);
 		StartCoroutine (Saver ());
 		yield break;
 	}

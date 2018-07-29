@@ -14,6 +14,10 @@ public class Counters : INeedCam {
 	public int SecondSpentCounter;
 	public int AllSecondSpentCounter;
 	[Space]
+	public int StartTime;
+	public int ClockTime;
+	public int EnemyTime;
+	[Space]
 	public Text SphereText;
 	public Text EndSphereText;
 	public Text X2SphereText;

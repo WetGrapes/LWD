@@ -12,6 +12,7 @@ public class TimeManager : INeedCam {
 	float timer = 1;
 
 
+
 	protected override void WithStartAnother() {
 		Count = Counter.GetComponent<Counters> ();
 		TimeCount = 60;
@@ -19,6 +20,9 @@ public class TimeManager : INeedCam {
 	
 
 	void Update () {
+		txt.text = TimeCount.ToString ();
+		if (Cam.nowTarget == 2)
+			TimeCount = Count.StartTime;
 		if (Cam.nowTarget == 4) {
 			if (timer >= 0)
 				timer -= Time.deltaTime;
@@ -26,8 +30,11 @@ public class TimeManager : INeedCam {
 				timer = 1;
 				TimeCount--;
 				Count.SecondSpentCounter++;
-				txt.text = TimeCount.ToString ();
+			}
+			if (TimeCount == 0) {
+				Cam.nowTarget = 5;
 			}
 		}
+
 	}
 }

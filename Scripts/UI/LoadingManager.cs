@@ -11,7 +11,8 @@ public class LoadingManager : MonoBehaviour {
 	{
 		yield return new WaitForEndOfFrame ();
 		if (Generation.GenerationStage != 3) {
-			txt.text = texts [Generation.GenerationStage - 1];
+			if (Generation.GenerationStage != 0)
+				txt.text = texts [Generation.GenerationStage - 1];
 			StartCoroutine (Start ());
 		} else {
 			txt.text = texts [Generation.GenerationStage - 1];
