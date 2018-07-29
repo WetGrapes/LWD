@@ -102,14 +102,14 @@ public class Player : MonoBehaviour {
 			} else 
 				BodyPhysic.AddRelativeForce (transform.up * Force);
 			//BodyPhysic.AddRelativeForce (ObjectTransform.transform.up * Force);
-		} else if (UpLeft && Grounded) {
+		} /*else if (UpLeft && Grounded) {
 			BodyPhysic.AddRelativeForce (ObjectTransform.transform.up * Force);
 			BodyPhysic.AddRelativeForce (ObjectTransform.transform.right * -Force);
 		} else if (UpRight && Grounded) {
 			BodyPhysic.AddRelativeForce (ObjectTransform.transform.up * Force);
 			BodyPhysic.AddRelativeForce (ObjectTransform.transform.right * Force);
 
-		} 
+		} */
 
 	}
 
