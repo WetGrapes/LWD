@@ -16,32 +16,46 @@ public class Generation : MonoBehaviour {
 	[SerializeField] int MaxClock = 20;
 	[SerializeField] int MaxBlb = 5;
 	int[,] gm = new int[9,1500];
+	GameObject[,] ObsOnLvl = new GameObject[9,1500];
 	int cl, rnd, lastClock, lastCrystal, lastEnemy;
-	float xpos, ypos, size;
+	float xpos, ypos, size, startxpos, startypos;
 	public static int GenerationStage;
-
+	float timer; 
 	[Space]
 	public int LvlSide;
 	public int StepOfGeneration;
 	public int StartOfStep;
-	bool GenDone;
+	public bool GenDone ;
 
 
-	void Start () {
+	IEnumerator Start () {
 		Count = Counter.GetComponent<Counters> ();
+		yield return new WaitForSeconds (0.0f);
 		size = 1;
 		xpos = -4 ;
 		ypos = 2 ;
-		StartCoroutine(StackGeneration ());
+		LvlSide += 5;
+
+		FirstLRWallCreate ();
+		startxpos = xpos;
+		startypos = ypos;
+
+		yield return new WaitForSeconds (0.0f);
+		GenDone = true;
+		yield break;
 	}
 
 	void Update()
 	{
-		if (GenDone) {
-			if ((Count.NowLvlCounter*5) >= ((LvlSide * (StepOfGeneration + 1)) - (StartOfStep*5))) {
-				GenDone = false;
-				StepOfGeneration++;
-				StartCoroutine (StackGeneration ());
+		if (Time.frameCount % 25 == 1) {
+			if (GenDone) {
+				if ((Count.NowLvlCounter * 5) >= ((LvlSide * (StepOfGeneration + 1)) - (StartOfStep * 5))) {
+					GenDone = false;
+					StepOfGeneration++;
+					StartCoroutine (StackGeneration ());
+					if ((LvlSide * (StepOfGeneration - 2)) > 0)
+						StartCoroutine (StackDeleting ());
+				}
 			}
 		}
 	}
@@ -58,6 +72,18 @@ public class Generation : MonoBehaviour {
 		yield return new WaitForSeconds (0.5f);
 		GenerationStage = 3;
 		GenDone = true;
+		yield break;
+	}
+	IEnumerator StackDeleting ()
+	{
+		for (int i = (LvlSide * (StepOfGeneration - 2)); i < (LvlSide * (StepOfGeneration - 1 )); i++) {
+			yield return new WaitForSeconds (0.0001f);
+			for (int j = 0; j < gm.GetLength (0); j++) { 
+				//yield return new WaitForSeconds (0.0f);
+				gm [j, i] = 0;
+				Destroy (ObsOnLvl [j, i]);
+			}
+		}
 		yield break;
 	}
 
@@ -89,7 +115,7 @@ public class Generation : MonoBehaviour {
 			for (int j = 0; j < gm.GetLength (0); j++) {
 				if (Obs [gm [j, i]] != null) {
 					Vector3 vc = new Vector3 (xpos, ypos, 0);
-					GameObject ob = Instantiate (Obs [gm [j, i]], vc, Quaternion.identity) as GameObject;
+					ObsOnLvl [j, i] = Instantiate (Obs [gm [j, i]], vc, Quaternion.identity) as GameObject;
 				}
 				xpos += size;
 			}
@@ -154,6 +180,38 @@ public class Generation : MonoBehaviour {
 			gm [Random.Range (1, gm.GetLength (0)-1), i] = 0;
 			cl = 0;
 		}
+	}
+
+	void FirstLRWallCreate()
+	{
+		for (int i = 0; i < 5; i++) {
+			gm [0, i] = 1;
+			gm [gm.GetLength (0) - 1, i] = 1;
+			Vector3 vc = new Vector3 (xpos, ypos, 0);
+			ObsOnLvl [0, i] = Instantiate (Obs [gm [0, i]], vc, Quaternion.identity) as GameObject;
+			vc = new Vector3 (xpos + (size*8), ypos, 0);
+			ObsOnLvl [gm.GetLength (0) - 1, i] = Instantiate (Obs [gm [gm.GetLength (0) - 1, i]], vc, Quaternion.identity) as GameObject;
+			ypos -= size;
+		}
+	}
+
+
+	public IEnumerator AllStackRemove()
+	{
+		yield return new WaitForSeconds (0f);
+		StepOfGeneration++;
+		StartCoroutine (StackDeleting ());
+		StepOfGeneration++;
+		StartCoroutine (StackDeleting ());
+		yield break;
+	}
+	public void ToStart()
+	{
+		xpos = startxpos;
+		ypos = startypos;
+		Count.NowLvlCounter = 0;
+		StepOfGeneration = 0;
+		GenDone = true;
 	}
 }
 

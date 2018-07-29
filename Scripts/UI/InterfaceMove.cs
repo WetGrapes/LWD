@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InterfaceMove : MonoBehaviour {
 
-	[SerializeField]float LowestPoint = 0f;
+	public float LowestPoint = 0f;
 	[SerializeField]float LowGo = 0f;
 	[Space]
 	[SerializeField]float Side = 2f;
