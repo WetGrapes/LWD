@@ -105,9 +105,11 @@ public class Player : MonoBehaviour {
 
 		
 		if (Left) {
-			BodyPhysic.velocity = new Vector2 (-Speed, BodyPhysic.velocity.y);
+			StartCoroutine (MoveToSide (-1));
+			//BodyPhysic.velocity = new Vector2 (-Speed, BodyPhysic.velocity.y);
 		} else if (Right) {
-			BodyPhysic.velocity = new Vector2 (Speed, BodyPhysic.velocity.y);
+			StartCoroutine (MoveToSide (1));
+			//BodyPhysic.velocity = new Vector2 (Speed, BodyPhysic.velocity.y);
 		} 
 		if (Central) {
 			if (Physics2D.OverlapPoint 
@@ -126,8 +128,8 @@ public class Player : MonoBehaviour {
 		if (Jump && Grounded) {
 
 			DoubleJump = 2;
+			Debug.Log ("Jump");
 			Jump = false;
-			//Debug.Log ("Jump");
 
 		} else if (UpLeft && Grounded) {
 			if (UpFree()) {
@@ -183,4 +185,17 @@ public class Player : MonoBehaviour {
 					(new Vector2 (GroundCheck.position.x, GroundCheck.position.y + DoubleJump),
 					WhatIsGround));
 	}
+    
+	IEnumerator MoveToSide(int x) {
+		if (x < 0) {
+			transform.position += new Vector3 (-1, 0, 0);
+			Left = false;  
+			yield return new WaitForSeconds (Time.deltaTime * 0.1f);
+		} else {
+			transform.position += new Vector3 (1, 0, 0);
+			Right = false;  
+			yield return new WaitForSeconds (Time.deltaTime * 0.1f);
+		}
+	}
+
 }
