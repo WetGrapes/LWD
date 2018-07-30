@@ -29,77 +29,26 @@ public class Player : MonoBehaviour {
 	public GameObject Count;
 	Counters CountManager;
 	[Space]
-
-	public float jumperTime;
-	public float jumperUp;
-	public float jumperScaler;
+	PlayerJumper Jumper;
 	[Space]
-
-	public bool PlayParticle;
-	public ParticleSystem Particle;
-	float ParticleTimer;
-	//public Color[] ParticleColors;
-	//GroundAnimator Animator;
+	PlayerParticle Particle;
 
 
 	void Start () {
 		BodyPhysic = gameObject.GetComponent<Rigidbody2D> ();
 		Way = gameObject.GetComponent<Trajectory> ();
 		CountManager = Count.GetComponent<Counters> ();
-		//Animator = GameObject.Find("GroundAnimator").GetComponent<GroundAnimator> ();
-		StartCoroutine (Jumper ());
+		Particle = GetComponent<PlayerParticle> ();
+		Jumper = GetComponent<PlayerJumper> ();
+		StartCoroutine (Jumper.Play(Grounded, BodyPhysic));
 	}
 
-	IEnumerator Jumper()
-	{ 
-		float scaler = 0;
-		yield return new WaitForSeconds (jumperTime);
-		if (Grounded) {
-			scaler = jumperScaler;
-			BodyPhysic.AddRelativeForce (transform.up * Force / jumperUp);
-		}
-		transform.localScale = new Vector3 (transform.localScale.x, transform.localScale.y - scaler, transform.localScale.z);
-		yield return new WaitForSeconds (jumperTime);
-		transform.localScale = new Vector3 (transform.localScale.x, transform.localScale.y + scaler, transform.localScale.z);
-		StartCoroutine (Jumper ());
-		yield break;
-	}
+
 
 	void FixedUpdate ()
 	{
-		if (!Grounded) {
-			if (Physics2D.OverlapCircle (GroundCheck.position, GroundRadius, WhatIsGround))
-				PlayParticle = true;
-			ParticleTimer += Time.fixedDeltaTime;
-		} else {
-
-			ParticleTimer = 0f;
-		}
-			
-		if (PlayParticle && ParticleTimer>=0.5f){//&& ParticleTimer>=1f) {
-			
-			/*int x = Mathf.FloorToInt (transform.position.x);
-			int y = Mathf.FloorToInt (transform.position.y - 0.5f);
-			GameObject ob = Physics2D.OverlapPoint (new Vector2 (GroundCheck.position.x, GroundCheck.position.y - 0.5f),
-				                WhatIsGround).gameObject;
-			texture = ob.GetComponent<SpriteRenderer> ().sprite.texture;
-			Vector2 pixelUV = new Vector2 (ob.transform.position.x, ob.transform.position.y);
-			pixelUV.x *= texture.width;
-			pixelUV.y *= texture.height;
-
-			Color color = texture.GetPixel 
-				(Mathf.FloorToInt (pixelUV.x), Mathf.FloorToInt (pixelUV.y * ob.GetComponent<GroungAnimation>().NowSprite));
-
-			var main = Particle.main;
-			main.startColor = color;*/
-
-			//var main = Particle.main;
-			//main.startColor = ParticleColors[Animator.NowSet];
-		
-			Particle.Play ();
-			PlayParticle = false;
-			ParticleTimer = 0f;
-		}
+		Particle.IfNotGrounded (Grounded, Physics2D.OverlapPoint (new Vector2 (transform.position.x, transform.position.y - 0.6f), WhatIsGround));	
+		Particle.SystemStart (0.5f);
 
 		Grounded = Physics2D.OverlapCircle (GroundCheck.position, GroundRadius, WhatIsGround);
 
@@ -146,6 +95,7 @@ public class Player : MonoBehaviour {
 				//Debug.Log ("RJump");
 			} else 
 				BodyPhysic.AddRelativeForce (transform.up * Force);
+			DoubleJump = 0;
 			//BodyPhysic.AddRelativeForce (ObjectTransform.transform.up * Force);
 		} /*else if (UpLeft && Grounded) {
 			BodyPhysic.AddRelativeForce (ObjectTransform.transform.up * Force);
@@ -159,21 +109,31 @@ public class Player : MonoBehaviour {
 	}
 
 	IEnumerator Move(int j) {
+		//проверка места куда он должен попасть
 		if (!Physics2D.OverlapPoint
 		(new Vector2 (GroundCheck.position.x + Way.Datas [j].FinalX, GroundCheck.position.y + Way.Datas [j].FinalY),
-			   WhatIsGround)) {
+			   WhatIsGround)) 
+		{
+			//физика отключается (чтобы он не падал во время выполнения скрипта)
 			BodyPhysic.simulated = false;
+
+			//цикл передвижения по точкам
 			for (int i = 0; i < Way.Datas [j].Steps; i++) {
-				//Debug.Log ("InFor");
+				//так как цикл расчитывается моментально(а тут нам это не нужно) мы делаем задержку
 				yield return new WaitForSeconds (Time.deltaTime * 0.8f);
+
+				//вот это перемещение на следующую точку
 				transform.position = new Vector3 (transform.position.x + Way.Datas [j].XPoint [i], 
 					transform.position.y + Way.Datas [j].YPoint [i], 
 					transform.position.z);
 			}
+
+			//физика включается, объект уже на позиции
 			BodyPhysic.simulated = true;
 		} else 
+			//если позиция куда должен сдвинуться игрок занята, то он немного подпрыгивает, чтобы было понятно, что кнопка нажалась
 			BodyPhysic.AddRelativeForce (transform.up * Force);
-		DoubleJump = 0;
+		//останавливаем энумератор, иначе он уйдет в вечный цикл
 		yield break;
 	}
 
@@ -190,11 +150,11 @@ public class Player : MonoBehaviour {
 		if (x < 0) {
 			transform.position += new Vector3 (-1, 0, 0);
 			Left = false;  
-			yield return new WaitForSeconds (Time.deltaTime * 0.1f);
+			yield return new WaitForSeconds (Time.deltaTime * 0.8f);
 		} else {
 			transform.position += new Vector3 (1, 0, 0);
 			Right = false;  
-			yield return new WaitForSeconds (Time.deltaTime * 0.1f);
+			yield return new WaitForSeconds (Time.deltaTime * 0.8f);
 		}
 	}
 

@@ -31,7 +31,7 @@ public class TimeManager : INeedCam {
 				TimeCount--;
 				Count.SecondSpentCounter++;
 			}
-			if (TimeCount == 0) {
+			if (TimeCount <= 0) {
 				Cam.nowTarget = 5;
 			}
 		}

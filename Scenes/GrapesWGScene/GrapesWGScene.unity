@@ -5108,7 +5108,8 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 61624395674853412, guid: c408f5f80c58c8048804fe6379b84e52, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c408f5f80c58c8048804fe6379b84e52, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &662792619 stripped
@@ -5303,6 +5304,14 @@ Prefab:
       propertyPath: GroundRadius
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1532661261394808, guid: eb391d30ca704274b896c09744af8235, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1475604084750698, guid: eb391d30ca704274b896c09744af8235, type: 2}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb391d30ca704274b896c09744af8235, type: 2}
   m_IsPrefabParent: 0
@@ -5423,7 +5432,8 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 61601541608568644, guid: 50e027d7f8a43764aa6ee1920c7e3fc8, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 50e027d7f8a43764aa6ee1920c7e3fc8, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1159434755
@@ -5744,6 +5754,35 @@ GameObject:
   m_PrefabParentObject: {fileID: 1475604084750698, guid: eb391d30ca704274b896c09744af8235,
     type: 2}
   m_PrefabInternal: {fileID: 673606486}
+--- !u!114 &1775184771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1775184763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64077cd3269f8ee49b6689758fbf83e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumperTime: 0.5
+  jumperUp: 50
+  jumperScaler: 0.025
+--- !u!114 &1775184772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1775184763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dc5a0014a7d7d44fbe86a954008dce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayParticle: 0
+  Particle: {fileID: 2012738784}
+  ParticleTimer: 0
+  ParticleColors: []
 --- !u!4 &1781501146 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4140125817028846, guid: ca967c94f5546284284a9b2665299cf3,
