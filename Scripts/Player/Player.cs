@@ -32,6 +32,9 @@ public class Player : MonoBehaviour {
 	PlayerJumper Jumper;
 	[Space]
 	PlayerParticle Particle;
+	[Space]
+	public int steps;
+	public float seconds;
 
 
 	void Start () {
@@ -41,6 +44,8 @@ public class Player : MonoBehaviour {
 		Particle = GetComponent<PlayerParticle> ();
 		Jumper = GetComponent<PlayerJumper> ();
 		StartCoroutine (Jumper.Play(Grounded, BodyPhysic));
+		Debug.Log (LayerMask.LayerToName (8));
+
 	}
 
 
@@ -53,12 +58,10 @@ public class Player : MonoBehaviour {
 		Grounded = Physics2D.OverlapCircle (GroundCheck.position, GroundRadius, WhatIsGround);
 
 		
-		if (Left) {
-			StartCoroutine (MoveToSide (-1));
-			//BodyPhysic.velocity = new Vector2 (-Speed, BodyPhysic.velocity.y);
-		} else if (Right) {
-			StartCoroutine (MoveToSide (1));
-			//BodyPhysic.velocity = new Vector2 (Speed, BodyPhysic.velocity.y);
+		if (Left && Grounded) {
+			StartCoroutine (MoveToSide (-1,seconds, steps));
+		} else if (Right && Grounded) {
+			StartCoroutine (MoveToSide ( 1,seconds, steps));
 		} 
 		if (Central) {
 			if (Physics2D.OverlapPoint 
@@ -84,7 +87,6 @@ public class Player : MonoBehaviour {
 			if (UpFree()) {
 				StartCoroutine (Move (1 + DoubleJump));
 				UpLeft = false;
-				//Debug.Log ("LJump");
 			} else 
 				BodyPhysic.AddRelativeForce (transform.up * Force);
 			
@@ -92,7 +94,6 @@ public class Player : MonoBehaviour {
 			if (UpFree()) {
 				StartCoroutine (Move (0 + DoubleJump));
 				UpRight = false;
-				//Debug.Log ("RJump");
 			} else 
 				BodyPhysic.AddRelativeForce (transform.up * Force);
 			DoubleJump = 0;
@@ -106,6 +107,20 @@ public class Player : MonoBehaviour {
 
 		} */
 
+		 if (Jump && Grounded) {
+		    	DoubleJump = 2;
+			    Jump = false;
+		 } else if (UpLeft && Grounded)  {
+			    if (UpFree()) {
+				              StartCoroutine (Move (1 + DoubleJump));
+				              UpLeft = false;
+			    } else BodyPhysic.AddRelativeForce (transform.up * Force);
+		 } else if (UpRight && Grounded) {
+			    if (UpFree()) {
+				              StartCoroutine (Move (0 + DoubleJump));
+				              UpRight = false;
+			    } else BodyPhysic.AddRelativeForce (transform.up * Force);
+		} 
 	}
 
 	IEnumerator Move(int j) {
@@ -145,17 +160,23 @@ public class Player : MonoBehaviour {
 					(new Vector2 (GroundCheck.position.x, GroundCheck.position.y + DoubleJump),
 					WhatIsGround));
 	}
-    
-	IEnumerator MoveToSide(int x) {
-		if (x < 0) {
-			transform.position += new Vector3 (-1, 0, 0);
-			Left = false;  
-			yield return new WaitForSeconds (Time.deltaTime * 0.8f);
-		} else {
-			transform.position += new Vector3 (1, 0, 0);
-			Right = false;  
-			yield return new WaitForSeconds (Time.deltaTime * 0.8f);
-		}
-	}
 
+
+	IEnumerator MoveToSide(int x, float time = 0.45f, int step = 5) {
+		
+		if(!Physics2D.OverlapPoint(new Vector2(transform.position.x+x, transform.position.y)))
+		 {
+			if (x > 0) {
+				        Right = false;
+			} else      Left  = false; 
+				
+			for(int i=0; i<step; i++) { 
+				yield return new WaitForSeconds (Time.deltaTime * time);
+				transform.position += new Vector3 ((float)x / (float)step, 0, 0);
+			}
+			yield return new WaitForSeconds (Time.deltaTime * time);
+			yield break;
+			}
+
+	}
 }
