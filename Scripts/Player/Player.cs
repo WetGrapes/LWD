@@ -48,6 +48,7 @@ public class Player : MonoBehaviour {
 		CountManager = Count.GetComponent<Counters> ();
 		//Animator = GameObject.Find("GroundAnimator").GetComponent<GroundAnimator> ();
 		StartCoroutine (Jumper ());
+		Debug.Log (LayerMask.LayerToName (8));
 	}
 
 	IEnumerator Jumper()
@@ -104,12 +105,10 @@ public class Player : MonoBehaviour {
 		Grounded = Physics2D.OverlapCircle (GroundCheck.position, GroundRadius, WhatIsGround);
 
 		
-		if (Left) {
-			StartCoroutine (MoveToSide (-1));
-			//BodyPhysic.velocity = new Vector2 (-Speed, BodyPhysic.velocity.y);
-		} else if (Right) {
-			StartCoroutine (MoveToSide (1));
-			//BodyPhysic.velocity = new Vector2 (Speed, BodyPhysic.velocity.y);
+		if (Left && Grounded) {
+			StartCoroutine (MoveToSide (-1,1));
+		} else if (Right && Grounded) {
+			StartCoroutine (MoveToSide (1,1));
 		} 
 		if (Central) {
 			if (Physics2D.OverlapPoint 
@@ -186,16 +185,24 @@ public class Player : MonoBehaviour {
 					WhatIsGround));
 	}
     
-	IEnumerator MoveToSide(int x) {
-		if (x < 0) {
-			transform.position += new Vector3 (-1, 0, 0);
-			Left = false;  
-			yield return new WaitForSeconds (Time.deltaTime * 0.1f);
-		} else {
-			transform.position += new Vector3 (1, 0, 0);
-			Right = false;  
-			yield return new WaitForSeconds (Time.deltaTime * 0.1f);
-		}
+	IEnumerator MoveToSide(int x, float time = 0.45f, int step = 5) {
+		
+		if(!Physics2D.OverlapPoint(new Vector2(transform.position.x+x, transform.position.y)) || 
+			Physics2D.OverlapPoint(new Vector2(transform.position.x+x, transform.position.y), 10 )) {
+			
+			if (x > 0) {
+				Right = false;
+			} else Left = false; 
+
+			for(int i=0; i<step; i++) {
+				yield return new WaitForSeconds (Time.deltaTime * time);
+				transform.position += new Vector3 (x * 0.20f,0,0);
+			}
+				
+
+			yield return new WaitForSeconds (Time.deltaTime * time);
+			yield break;
+			}
 	}
 
 }
