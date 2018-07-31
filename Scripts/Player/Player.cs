@@ -44,8 +44,6 @@ public class Player : MonoBehaviour {
 		Particle = GetComponent<PlayerParticle> ();
 		Jumper = GetComponent<PlayerJumper> ();
 		StartCoroutine (Jumper.Play(Grounded, BodyPhysic));
-		Debug.Log (LayerMask.LayerToName (8));
-
 	}
 
 
