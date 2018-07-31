@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerParticle : MonoBehaviour {
 	public bool PlayParticle;
 	public ParticleSystem Particle;
-	public float ParticleTimer;
+	public float ParticleTimer, FlightTime;
 	public Color[] ParticleColors;
 	GroundAnimator Animator;
 
-	public void SystemStart(float FlightTime)
+	public void SystemStart()
 	{
 		if (PlayParticle && ParticleTimer >= FlightTime){
 

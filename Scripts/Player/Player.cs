@@ -50,8 +50,8 @@ public class Player : MonoBehaviour {
 
 	void FixedUpdate ()
 	{
-		Particle.IfNotGrounded (Grounded, Physics2D.OverlapPoint (new Vector2 (transform.position.x, transform.position.y - 0.6f), WhatIsGround));	
-		Particle.SystemStart (0.5f);
+		Particle.IfNotGrounded (Grounded, Physics2D.OverlapPoint (new Vector2 (transform.position.x, transform.position.y - 0.8f), WhatIsGround));	
+		Particle.SystemStart ();
 
 		Grounded = Physics2D.OverlapCircle (GroundCheck.position, GroundRadius, WhatIsGround);
 
@@ -76,18 +76,15 @@ public class Player : MonoBehaviour {
 
 	void Update () {
 		if (Jump && Grounded) {
-
 			DoubleJump = 2;
-			Debug.Log ("Jump");
 			Jump = false;
-
 		} else if (UpLeft && Grounded) {
 			if (UpFree()) {
 				StartCoroutine (Move (1 + DoubleJump));
 				UpLeft = false;
 			} else 
 				BodyPhysic.AddRelativeForce (transform.up * Force);
-			
+			DoubleJump = 0;
 		} else if (UpRight && Grounded) {
 			if (UpFree()) {
 				StartCoroutine (Move (0 + DoubleJump));
@@ -95,29 +92,6 @@ public class Player : MonoBehaviour {
 			} else 
 				BodyPhysic.AddRelativeForce (transform.up * Force);
 			DoubleJump = 0;
-			//BodyPhysic.AddRelativeForce (ObjectTransform.transform.up * Force);
-		} /*else if (UpLeft && Grounded) {
-			BodyPhysic.AddRelativeForce (ObjectTransform.transform.up * Force);
-			BodyPhysic.AddRelativeForce (ObjectTransform.transform.right * -Force);
-		} else if (UpRight && Grounded) {
-			BodyPhysic.AddRelativeForce (ObjectTransform.transform.up * Force);
-			BodyPhysic.AddRelativeForce (ObjectTransform.transform.right * Force);
-
-		} */
-
-		 if (Jump && Grounded) {
-		    	DoubleJump = 2;
-			    Jump = false;
-		 } else if (UpLeft && Grounded)  {
-			    if (UpFree()) {
-				              StartCoroutine (Move (1 + DoubleJump));
-				              UpLeft = false;
-			    } else BodyPhysic.AddRelativeForce (transform.up * Force);
-		 } else if (UpRight && Grounded) {
-			    if (UpFree()) {
-				              StartCoroutine (Move (0 + DoubleJump));
-				              UpRight = false;
-			    } else BodyPhysic.AddRelativeForce (transform.up * Force);
 		} 
 	}
 
@@ -162,7 +136,7 @@ public class Player : MonoBehaviour {
 
 	IEnumerator MoveToSide(int x, float time = 0.45f, int step = 5) {
 		
-		if(!Physics2D.OverlapPoint(new Vector2(transform.position.x+x, transform.position.y)))
+		if(!Physics2D.OverlapPoint(new Vector2(transform.position.x+x, transform.position.y), WhatIsGround))
 		 {
 			if (x > 0) {
 				        Right = false;
