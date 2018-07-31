@@ -16048,6 +16048,11 @@ Prefab:
       propertyPath: SizeModule.curve.minScalar
       value: 0.3889
       objectReference: {fileID: 0}
+    - target: {fileID: 198493043016940362, guid: ca10306e9cc71de47ac2697dcddb5462,
+        type: 2}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca10306e9cc71de47ac2697dcddb5462, type: 2}
   m_IsPrefabParent: 0

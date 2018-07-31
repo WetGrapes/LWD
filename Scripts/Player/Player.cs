@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
 	[Space]
 	public float Speed;
 	public int DoubleJump;
+	public int CentralTap;
 
 	[System.NonSerialized] public bool Jump;
 	[System.NonSerialized] public bool Left;
@@ -64,15 +65,19 @@ public class Player : MonoBehaviour {
 			StartCoroutine (MoveToSide ( 1,seconds, steps));
 		} 
 		if (Central) {
+			CentralTap++;
 			if (Physics2D.OverlapPoint 
 				(new Vector2 (transform.position.x, transform.position.y - 1), WhatIsGround) &&
-				CountManager.blbCounter>0) {
-				Destroy (Physics2D.OverlapPoint 
-					(new Vector2 (transform.position.x, transform.position.y - 1),
-					WhatIsGround).gameObject, 0.2f);
+				CountManager.blbCounter>0 && CentralTap == 2) 
+			{
+				Physics2D.OverlapPoint (new Vector2 (transform.position.x, transform.position.y - 1),
+					WhatIsGround).gameObject.GetComponent<GroungAnimation> ().Deleting ();
+				
 				CountManager.blbCounter--;
+				CentralTap = 0;
 			}
 			Central = false;
+
 		}
 	} 
 
@@ -98,6 +103,7 @@ public class Player : MonoBehaviour {
 	}
 
 	IEnumerator Move(int j) {
+		CentralTap = 0;
 		//проверка места куда он должен попасть
 		if (!Physics2D.OverlapPoint
 		(new Vector2 (GroundCheck.position.x + Way.Datas [j].FinalX, GroundCheck.position.y + Way.Datas [j].FinalY),
@@ -137,7 +143,7 @@ public class Player : MonoBehaviour {
 
 
 	IEnumerator MoveToSide(int x, float time = 0.45f, int step = 5) {
-		
+		CentralTap = 0;
 		if(!Physics2D.OverlapPoint(new Vector2(transform.position.x+x, transform.position.y), WhatIsGround))
 		 {
 			if (x > 0) {
