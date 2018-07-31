@@ -5,19 +5,30 @@ using UnityEngine.Sprites;
 public class Bonuses : MonoBehaviour {
 	public GameObject Player;
 	public GameObject Manager;
-//	public ParticleSystem Particle;
-//	public SpriteRenderer Renderer;
-
+	public ParticleSystem Particle;
+	public SpriteRenderer Renderer;
+	public float Multi, TimeToDead,EndDisappearance;
 	protected bool Tink = true;
 
+	void Start()
+	{
+		Particle = gameObject.GetComponent<ParticleSystem> ();
+		Renderer = gameObject.GetComponent<SpriteRenderer> ();
+		AnotherStart ();
+	}
 	void Update () {
+
+		AnotherUpdate ();
 		if (Near()) {
 			if (Tink) {
 				ActBonus ();
-//				Particle.Play ();
-//				if (Renderer)
-//					StartCoroutine ();
-				Destroy (gameObject, 0.5f);
+				if (Particle) {
+					Particle.Play ();
+					Debug.Log ("particle");
+				}
+				if (Renderer)
+					StartCoroutine (ImageDesappearance());
+				Destroy (gameObject, TimeToDead);
 			}
 			Tink = false;
 		}
@@ -28,9 +39,23 @@ public class Bonuses : MonoBehaviour {
 			Mathf.Abs (Player.transform.position.y - transform.position.y) < 0.5f);
 	}
 
-	//IEnumerator 
+	IEnumerator ImageDesappearance()
+	{
+		float MinusA = (float) Renderer.color.a/Multi;
+		for (int i = 0; i < Multi; i++) {
+			yield return new WaitForSeconds ((TimeToDead-EndDisappearance) / Multi);
+			Renderer.color = new Color (Renderer.color.r, Renderer.color.g, Renderer.color.b, Renderer.color.a - MinusA);
+		}
+		yield break;
+	}
 
 	protected virtual void ActBonus()
+	{
+	}
+	protected virtual void AnotherUpdate()
+	{
+	}
+	protected virtual void AnotherStart()
 	{
 	}
 }
