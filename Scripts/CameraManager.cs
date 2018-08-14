@@ -12,12 +12,18 @@ public class CameraManager : MonoBehaviour {
 	Vector3 currentVelocity;
 	Vector3 lookAheadPos;
 
+
 	void Start () {
 		lastTargetPosition = target[nowTarget].position;
 		offsetZ = (transform.position - target[nowTarget].position).z;
-
+		 
 	}
 	void Update () {
+		if (Input.GetKey (KeyCode.Escape)) {
+		
+			nowTarget = 1;
+
+		}
 		if (target != null) {
 			
 			float yMoveDelta = (target[nowTarget].position - lastTargetPosition).y;
