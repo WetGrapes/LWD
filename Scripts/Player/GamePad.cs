@@ -17,6 +17,7 @@ public class GamePad : IClickableBotton {
 			switch (gameObject.name) {
 			case "UpBotton":
 				player.Jump = true;
+				Invoke ("Off", 0.1f);
 				break;
 			case "LeftBotton":
 				player.Left = true;
@@ -26,9 +27,11 @@ public class GamePad : IClickableBotton {
 				break;
 			case "LeftUpBotton":
 				player.UpLeft = true;
+				Invoke ("Off", 0.1f);
 				break;
 			case "RightUpBotton":
 				player.UpRight = true;
+				Invoke ("Off", 0.1f);
 				break;
 			case "CentralBotton":
 				player.Central = true; 
@@ -37,13 +40,33 @@ public class GamePad : IClickableBotton {
 
 		}
 	}
-
-	void Send(string name)
+	void OnMouseUp()
 	{
-		if (gameObject.name == name + "Botton")
-			;
-		//3	player.
-		
+		switch (gameObject.name) {
+
+		case "LeftBotton":
+			player.Left = false;
+			break;
+		case "RightBotton":
+			player.Right = false;
+			break;
+
+		}
+
+	}
+	void Off()
+	{
+		switch (gameObject.name) {
+		case "UpBotton":
+			player.Jump = false;
+			break;
+		case "LeftUoBotton":
+			player.Left = false;
+			break;
+		case "RightUpBotton":
+			player.Right = false;
+			break;
+		}
 	}
 
 

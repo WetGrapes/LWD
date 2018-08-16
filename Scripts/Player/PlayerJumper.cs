@@ -6,6 +6,13 @@ public class PlayerJumper : MonoBehaviour {
 	public float jumperTime;
 	public float jumperUp;
 	public float jumperScaler;
+	public bool OnStay;
+
+	void Start()
+	{
+		if (OnStay)
+			StartCoroutine (Play (true, gameObject.GetComponent<Rigidbody2D> () ) );
+	}
 
 	public IEnumerator Play(bool Grounded, Rigidbody2D BodyPhysic)
 	{ 

@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Sprites;
+//using UnityEngine.Sprites;
 
 public class GroungAnimation : MonoBehaviour {
 	
 	SpriteRenderer Renderer;
 	GroundAnimator Animator;
 	ParticleSystem Particle;
-
+	public Sprite[] Set = new Sprite[13];
 	float MaxSpeed = 3f, MinSpeed = 0.2f;
 	public int NowSprite;
 	public float Multi, TimeToDead,EndDisappearance;

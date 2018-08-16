@@ -7,11 +7,13 @@ public class Bonuses : MonoBehaviour {
 	public GameObject Manager;
 	public ParticleSystem Particle;
 	public SpriteRenderer Renderer;
+	public AudioSource Audio;
 	public float Multi, TimeToDead,EndDisappearance;
 	protected bool Tink = true;
 
 	void Start()
 	{
+		Audio =  gameObject.GetComponent<AudioSource> ();
 		Particle = gameObject.GetComponent<ParticleSystem> ();
 		Renderer = gameObject.GetComponent<SpriteRenderer> ();
 		AnotherStart ();
@@ -23,6 +25,7 @@ public class Bonuses : MonoBehaviour {
 			if (Tink) {
 				ActBonus ();
 				if (Particle) {
+					Audio.Play ();
 					Particle.Play ();
 					Debug.Log ("particle");
 				}
